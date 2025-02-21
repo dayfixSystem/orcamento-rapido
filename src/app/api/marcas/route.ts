@@ -6,8 +6,12 @@ export async function GET() {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/orcamento/marcas`, {
       headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` },
     });
+
+
     return NextResponse.json(res.data);
   } catch (error) {
+    console.log(error);
+    
     return NextResponse.json({ error: 'Erro ao buscar marcas' }, { status: 500 });
   }
 }
